@@ -29,7 +29,7 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */createMenuItem("sandwich", 6, "lunch")
 createMenuItem("ice cream", 3, "desert")
-createMenuItem("pancakes", 4, "breakfast" )
+createMenuItem("pancakes", 4, "breakfast")
 
 
 
@@ -50,12 +50,14 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  discount: function(string, price){
+  discount: function(string){
+    let saving = 0
     if((string === 'teacher') || (string ==='student')){
-      price * .25
-    } else{price * .1}
+      saving = this.price * .25
+    } else{ 
+      saving = this.price * .1}
+    return this.price - saving
   }
-    // return price - discount
 }
 
 
@@ -75,7 +77,8 @@ const reviews = [
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
-*/console.log(review[5][feedback]);
+*/const julius = reviews[5];
+console.log(julius.feedback);
 
 
 
@@ -109,9 +112,8 @@ Use the getReviewByIndex function below to do the following:
 
 
 function getReviewByIndex(array, index) {
-  const desiredIndex = [] 
-    return `${array.name} gave the restaurant a ${array.rating} star review, and their feedback was: ${array.review}';
-  }
+  const desiredIndex = []; 
+    return `${array[index].name} gave the restaurant a ${array[index].rating} star review, and their feedback was: ${array[index].feedback}`;
  }
 
 
@@ -132,10 +134,10 @@ Use the getLastReview function below to do the following:
 
 
 function getLastReview(array) {
-  const final = array.[array.length-1]
-  return `${final.name} gave the restaurant a ${final.rating} star review, and their feedback was: ${feedback}``
+  const final = array[array.length-1]
+  return `${final.name} gave the restaurant a ${final.rating} star review, and their feedback was: ${final.feedback}`
 } 
-return getLastReview(reviews)
+getLastReview(reviews)
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
